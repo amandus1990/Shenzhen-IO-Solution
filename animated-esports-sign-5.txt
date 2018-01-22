@@ -1,0 +1,91 @@
+[name] (PD) Zzymyn, Thaui
+[puzzle] Sz001
+[production-cost] 1300
+[power-usage] 82
+[lines-of-code] 19
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+....9554...15555C.....
+....A....141554.A.....
+....34.....1555CA.....
+......15D555554AA.....
+......14A..9414AA.....
+....9415E..A9556A.....
+....354.2..221556.....
+......................
+......................
+
+[chip] 
+[type] BRIDGE
+[x] 14
+[y] 2
+
+[chip] 
+[type] NOT
+[x] 5
+[y] 3
+[rotated] true
+
+[chip] 
+[type] OR
+[x] 12
+[y] 3
+[rotated] true
+
+[chip] 
+[type] DX3
+[x] 5
+[y] 4
+
+[chip] 
+[type] NOT
+[x] 7
+[y] 4
+[rotated] true
+
+[chip] 
+[type] BRIDGE
+[x] 14
+[y] 5
+
+[chip] 
+[type] UC6
+[x] 7
+[y] 6
+[code] 
+  slp 6
+  mov x0 x3
+  slp 1
+  mov 110 x3
+  slp 1
+  mov 100 x3
+  slp 1
+  mov 011 x3
+  slp 1
+  mov 000 x3
+
+[chip] 
+[type] DX3
+[x] 10
+[y] 6
+
+[chip] 
+[type] UC4X
+[x] 4
+[y] 7
+[code] 
+@ slp x3
+  mov 010 x3
+  slp 1
+  slp x3
+  mov 010 x3
+  slp 1
+  slp x3
+  mov 010 x3
+  slp 6
+

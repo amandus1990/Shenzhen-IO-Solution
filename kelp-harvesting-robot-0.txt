@@ -1,0 +1,139 @@
+[name] New design 1
+[puzzle] Sz042EZ
+[production-cost] 2800
+[power-usage] 4527
+[lines-of-code] 60
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+....14..14............
+..9554.15C.154.1C.....
+..A....14A.94...A954..
+..B54.14974A15C16A14..
+..A94.14A14354A156.8..
+..A355556...94355556..
+..35555555556.........
+......................
+......................
+
+[chip] 
+[type] UC6
+[x] 10
+[y] 3
+[code] 
+  slx x3 # 4
+  dst 1 x3
+  dst 0 x3
+  mov acc dat
+  mov 0 x2
+loop:
+  dst 1 x0
+  dst 0 x0
+  tlt acc 1
+- teq acc dat
+- jmp loop
+  mov x2 x1
+  teq acc dat
++ gen p1 1 0
+
+[chip] 
+[type] RAM
+[x] 4
+[y] 4
+
+[chip] 
+[type] UC4X
+[x] 7
+[y] 4
+[code] 
+  slx x2 # 5
+  mov x2 acc
+  sub 2
+  mov acc x1
+loop:
+  tlt x1 12
++ mov x3 x0
++ mov x3 x0
++ jmp loop
+
+[chip] 
+[type] UC4
+[x] 16
+[y] 4
+[code] 
+  slx x0
+  mov x0 p0
+  mov x0 p1
+
+[chip] 
+[type] UC6
+[x] 5
+[y] 6
+[code] 
+  dst 1 x3 # 1
+  dst 0 x3
+  tgt acc 0
+- mov x1 acc
+- sub 2
+- mov acc x1
+- mov x0 x3
+- mov x0 x3
+- mov 0 x1
+- mov dat x2
+- mov x2 dat
+- slp 1
+- mov 0 x1
+
+[chip] 
+[type] BRIDGE
+[x] 8
+[y] 6
+
+[chip] 
+[type] UC6
+[x] 9
+[y] 6
+[code] 
+  slx x0 # 2
+  mov x0 x3
+  mov x1 x3
+  mov x3 acc
+  mov acc x0
+  mov acc x2
+  mov dat x3
+  mov x1 x3
+  mov x3 dat
+  mov dat x2
+#x0 comm,x1 data
+#x3 comm2,x2 comm
+  
+
+[chip] 
+[type] UC6
+[x] 13
+[y] 6
+[code] 
+  slx x1 # 3
+  mov x1 acc
+  mov x1 dat
+  teq dat -999
++ mov acc dat
+  tcp dat acc
+  mov 50 dat
++ add 1
+- sub 1
+  mov acc x1
++ mov 100 dat
+- mov 0 dat
+  mov dat x3
+
+[chip] 
+[type] RADIO
+[x] 2
+[y] 7
+[is-puzzle-provided] true
+

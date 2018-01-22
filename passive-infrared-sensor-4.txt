@@ -1,0 +1,143 @@
+[name] (P) CaitSith2
+[puzzle] Sz005
+[production-cost] 1700
+[power-usage] 159
+[lines-of-code] 25
+
+[traces] 
+......................
+......................
+......................
+......................
+......................
+....15C1555555C.......
+....94A154....B4......
+....A96955541C341C....
+....2A.A.8955754.A....
+....161616A15554.2....
+........14A1554.......
+......155561414.......
+......................
+......................
+
+[chip] 
+[type] NOTE
+[x] 2
+[y] 2
+[code] 
+This DX300 is used
+to control how
+long the sensor
+reader sleeps for.
+
+During ON, slp 1
+once switched to
+OFF, slp 100
+
+[chip] 
+[type] DX3
+[x] 5
+[y] 2
+
+[chip] 
+[type] UC6
+[x] 9
+[y] 2
+[code] 
+@ mov x1 x3
+@ mov p1 x3
+@ slp x3
+  mov 100 p0
+@ mov 19 x0
+  mov x1 acc
+  sub x2
+  mul -1
+  tlt acc 0
++ add 96
+  slp acc
+  mov 0 p0
+  slp 999
+
+[chip] 
+[type] DIAL2
+[x] 12
+[y] 2
+[is-puzzle-provided] true
+
+[chip] 
+[type] UC4X
+[x] 14
+[y] 2
+[code] 
+  mov x0 acc
+  sub x0
+  tlt acc 0
++ add 96
+  mov acc x0
+  slx x0
+
+[chip] 
+[type] NOTE
+[x] 17
+[y] 2
+[code] 
+MC6000 gets diff
+between current
+time and ON time,
+slps for that
+duration.
+
+then diff between
+ON and OFF and slp
+
+[chip] 
+[type] DIAL1
+[x] 7
+[y] 3
+[is-puzzle-provided] true
+
+[chip] 
+[type] RTC
+[x] 12
+[y] 4
+[is-puzzle-provided] true
+
+[chip] 
+[type] BRIDGE
+[x] 9
+[y] 5
+
+[chip] 
+[type] AND
+[x] 15
+[y] 5
+
+[chip] 
+[type] NOT
+[x] 11
+[y] 6
+[rotated] true
+
+[chip] 
+[type] UC4
+[x] 5
+[y] 7
+[code] 
+@ slx x1
+@ tgt p0 x1
++ mov 100 p1
+  slp x0
+  tgt p0 p1
+
+[chip] 
+[type] UC4
+[x] 15
+[y] 7
+[code] 
+@ mov 19 p0
+  
+#seed the port
+#with 19
+#clamped to 0 by
+#AND gate.
+
